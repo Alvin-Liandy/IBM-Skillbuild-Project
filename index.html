@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EarthWatch — Climate Intelligence Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       SIDEBAR NAVIGATION
+  ============================================= -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+  <aside class="sidebar" role="navigation" aria-label="Primary navigation">
+    <div class="sidebar__brand">
+      <span class="sidebar__logo" aria-hidden="true">&#9676;</span>
+      <span class="sidebar__name">EarthWatch</span>
+    </div>
+
+    <nav>
+      <ul class="sidebar__menu">
+        <li class="sidebar__item sidebar__item--active">
+          <a href="#overview" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">&#9632;</span>
+            <span>Overview</span>
+          </a>
+        </li>
+        <li class="sidebar__item">
+          <a href="#climate-trends" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">&#9650;</span>
+            <span>Climate Trends</span>
+          </a>
+        </li>
+        <li class="sidebar__item">
+          <a href="#renewable-energy" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">&#9711;</span>
+            <span>Renewable Energy</span>
+          </a>
+        </li>
+        <li class="sidebar__item">
+          <a href="#risk-index" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">&#9888;</span>
+            <span>Risk Index</span>
+          </a>
+        </li>
+        <li class="sidebar__item">
+          <a href="#news" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">&#9741;</span>
+            <span>News</span>
+          </a>
+        </li>
+        <li class="sidebar__item">
+          <a href="#settings" class="sidebar__link">
+            <span class="sidebar__icon" aria-hidden="true">&#9881;</span>
+            <span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar__footer">
+      <span class="data-label">&#9432; Illustrative data only</span>
+    </div>
+  </aside>
+
+  <!-- Mobile hamburger toggle -->
+  <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </label>
+
+  <!-- =============================================
+       MAIN WRAPPER
+  ============================================= -->
+  <div class="main-wrapper">
+
+    <!-- =============================================
+         TOP NAVIGATION BAR
+    ============================================= -->
+    <header class="topbar" role="banner">
+      <div class="topbar__left">
+        <h1 class="topbar__title">Climate Intelligence Dashboard</h1>
+        <span class="topbar__subtitle">Global Environmental Monitor</span>
+      </div>
+      <div class="topbar__right">
+        <label for="search" class="sr-only">Search</label>
+        <div class="topbar__search">
+          <span class="topbar__search-icon" aria-hidden="true">&#9906;</span>
+          <input id="search" type="search" placeholder="Search regions, metrics…" class="topbar__search-input" />
+        </div>
+        <button class="topbar__notif" aria-label="3 notifications">
+          <span aria-hidden="true">&#9993;</span>
+          <span class="topbar__badge">3</span>
+        </button>
+        <div class="topbar__profile" role="img" aria-label="Admin profile: Alex M.">
+          <span class="topbar__avatar" aria-hidden="true">AM</span>
+          <div class="topbar__profile-info">
+            <span class="topbar__profile-name">Alex M.</span>
+            <span class="topbar__profile-role">Administrator</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- =============================================
+         MAIN CONTENT
+    ============================================= -->
+    <main class="content" id="overview">
+
+      <!-- ==========================================
+           SECTION 1: KPI Cards
+      =========================================== -->
+      <section class="section" aria-label="Key Performance Indicators">
+        <h2 class="section__title">Global Climate Metrics <span class="section__badge">2023 snapshot</span></h2>
+        <div class="kpi-grid">
+
+          <article class="kpi-card kpi-card--alert">
+            <div class="kpi-card__header">
+              <span class="kpi-card__label">Temperature Change</span>
+              <span class="kpi-card__icon" aria-hidden="true">&#9651;</span>
+            </div>
+            <div class="kpi-card__value">+1.2<span class="kpi-card__unit">°C</span></div>
+            <div class="kpi-card__meta">
+              <span class="kpi-card__delta kpi-card__delta--up">&#9650; +0.08°C vs 2022</span>
+              <span class="kpi-card__period">Above pre-industrial baseline</span>
+            </div>
+            <div class="kpi-card__bar"><div class="kpi-card__bar-fill" style="--fill:60%"></div></div>
+          </article>
+
+          <article class="kpi-card kpi-card--danger">
+            <div class="kpi-card__header">
+              <span class="kpi-card__label">CO₂ Emissions</span>
+              <span class="kpi-card__icon" aria-hidden="true">&#9762;</span>
+            </div>
+            <div class="kpi-card__value">42<span class="kpi-card__unit">Gt/yr</span></div>
+            <div class="kpi-card__meta">
+              <span class="kpi-card__delta kpi-card__delta--up">&#9650; +1.2 Gt vs 2022</span>
+              <span class="kpi-card__period">Global CO₂ equivalent</span>
+            </div>
+            <div class="kpi-card__bar"><div class="kpi-card__bar-fill" style="--fill:84%"></div></div>
+          </article>
+
+          <article class="kpi-card kpi-card--positive">
+            <div class="kpi-card__header">
+              <span class="kpi-card__label">Renewable Energy Share</span>
+              <span class="kpi-card__icon" aria-hidden="true">&#9728;</span>
+            </div>
+            <div class="kpi-card__value">35.4<span class="kpi-card__unit">%</span></div>
+            <div class="kpi-card__meta">
+              <span class="kpi-card__delta kpi-card__delta--positive">&#9650; +3.1% vs 2022</span>
+              <span class="kpi-card__period">Global electricity mix</span>
+            </div>
+            <div class="kpi-card__bar"><div class="kpi-card__bar-fill" style="--fill:35.4%"></div></div>
+          </article>
+
+          <article class="kpi-card kpi-card--warning">
+            <div class="kpi-card__header">
+              <span class="kpi-card__label">Climate Risk Index</span>
+              <span class="kpi-card__icon" aria-hidden="true">&#9888;</span>
+            </div>
+            <div class="kpi-card__value">64<span class="kpi-card__unit">/100</span></div>
+            <div class="kpi-card__meta">
+              <span class="kpi-card__delta kpi-card__delta--up">&#9650; +4 pts vs 2022</span>
+              <span class="kpi-card__period">Composite global risk score</span>
+            </div>
+            <div class="kpi-card__bar"><div class="kpi-card__bar-fill" style="--fill:64%"></div></div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SECTION 2: Climate Trends — dual panel
+      =========================================== -->
+      <section class="section" id="climate-trends" aria-label="Climate Trends">
+        <h2 class="section__title">Climate Trends <span class="section__badge">1960–2023 · Illustrative</span></h2>
+
+        <div class="trends-layout">
+
+          <!-- Panel A: Temperature Anomaly Bar Chart -->
+          <div class="card trends-panel">
+            <div class="trends-panel__heading">
+              <span class="trends-panel__title">Global Temperature Anomaly</span>
+              <span class="trends-panel__unit">°C above baseline</span>
+            </div>
+            <div class="chart-legend">
+              <span class="legend-dot legend-dot--cold"></span><span>Below avg</span>
+              <span class="legend-dot legend-dot--warm"></span><span>Warming</span>
+              <span class="legend-dot legend-dot--hot"></span><span>Hot</span>
+              <span class="legend-dot legend-dot--critical"></span><span>Critical</span>
+            </div>
+            <div class="bar-chart" role="img" aria-label="Bar chart showing temperature anomaly rising from 1960 to 2023 (illustrative data)">
+              <div class="bar-chart__y-axis">
+                <span>+1.5</span><span>+1.0</span><span>+0.5</span><span>+0.0</span><span>−0.5</span>
+              </div>
+              <div class="bar-chart__bars">
+                <div class="bar-group"><div class="bar bar--cold"     style="--h:18%"></div><span class="bar-label">1960</span></div>
+                <div class="bar-group"><div class="bar bar--cold"     style="--h:22%"></div><span class="bar-label">1965</span></div>
+                <div class="bar-group"><div class="bar bar--cold"     style="--h:26%"></div><span class="bar-label">1970</span></div>
+                <div class="bar-group"><div class="bar bar--cold"     style="--h:30%"></div><span class="bar-label">1975</span></div>
+                <div class="bar-group"><div class="bar bar--warm"     style="--h:36%"></div><span class="bar-label">1980</span></div>
+                <div class="bar-group"><div class="bar bar--warm"     style="--h:42%"></div><span class="bar-label">1985</span></div>
+                <div class="bar-group"><div class="bar bar--warm"     style="--h:50%"></div><span class="bar-label">1990</span></div>
+                <div class="bar-group"><div class="bar bar--warm"     style="--h:56%"></div><span class="bar-label">1995</span></div>
+                <div class="bar-group"><div class="bar bar--hot"      style="--h:63%"></div><span class="bar-label">2000</span></div>
+                <div class="bar-group"><div class="bar bar--hot"      style="--h:68%"></div><span class="bar-label">2005</span></div>
+                <div class="bar-group"><div class="bar bar--hot"      style="--h:74%"></div><span class="bar-label">2010</span></div>
+                <div class="bar-group"><div class="bar bar--hot"      style="--h:80%"></div><span class="bar-label">2015</span></div>
+                <div class="bar-group"><div class="bar bar--critical" style="--h:88%"></div><span class="bar-label">2020</span></div>
+                <div class="bar-group"><div class="bar bar--critical" style="--h:95%"></div><span class="bar-label">2023</span></div>
+              </div>
+            </div>
+            <p class="chart-note">&#9432; Illustrative data only. Not derived from real-world measurements.</p>
+          </div>
+
+          <!-- Panel B: CO₂ ppm Line Chart (CSS polyline via stacked segments) -->
+          <div class="card trends-panel">
+            <div class="trends-panel__heading">
+              <span class="trends-panel__title">Atmospheric CO₂ Concentration</span>
+              <span class="trends-panel__unit">parts per million (ppm)</span>
+            </div>
+            <div class="chart-legend">
+              <span class="legend-dot legend-dot--teal"></span><span>CO₂ ppm (scaled to chart)</span>
+            </div>
+            <!-- CSS line chart using the "step" method: a horizontal flex of positioned dots + connecting lines -->
+            <div class="line-chart" role="img" aria-label="Line chart of CO₂ concentration rising from 317 ppm in 1960 to 421 ppm in 2023 (illustrative data)">
+              <div class="line-chart__y-axis">
+                <span>425</span><span>400</span><span>380</span><span>360</span><span>340</span><span>320</span>
+              </div>
+              <div class="line-chart__plot">
+                <!-- Grid lines -->
+                <div class="line-chart__grid">
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <!-- Each point: --left = x position %, --bottom = y position % -->
+                <!-- CO₂ values (illustrative): 317,320,325,330,338,346,354,360,369,379,390,400,413,421 -->
+                <div class="lc-point" style="--left:0%;   --bottom:1%"  ><span class="lc-tip">317</span></div>
+                <div class="lc-point" style="--left:7.7%; --bottom:3%"  ><span class="lc-tip">320</span></div>
+                <div class="lc-point" style="--left:15.4%;--bottom:8%"  ><span class="lc-tip">325</span></div>
+                <div class="lc-point" style="--left:23.1%;--bottom:13%" ><span class="lc-tip">330</span></div>
+                <div class="lc-point" style="--left:30.8%;--bottom:20%" ><span class="lc-tip">338</span></div>
+                <div class="lc-point" style="--left:38.5%;--bottom:28%" ><span class="lc-tip">346</span></div>
+                <div class="lc-point" style="--left:46.2%;--bottom:35%" ><span class="lc-tip">354</span></div>
+                <div class="lc-point" style="--left:53.8%;--bottom:41%" ><span class="lc-tip">360</span></div>
+                <div class="lc-point" style="--left:61.5%;--bottom:50%" ><span class="lc-tip">369</span></div>
+                <div class="lc-point" style="--left:69.2%;--bottom:60%" ><span class="lc-tip">379</span></div>
+                <div class="lc-point" style="--left:76.9%;--bottom:70%" ><span class="lc-tip">390</span></div>
+                <div class="lc-point" style="--left:84.6%;--bottom:80%" ><span class="lc-tip">400</span></div>
+                <div class="lc-point" style="--left:92.3%;--bottom:91%" ><span class="lc-tip">413</span></div>
+                <div class="lc-point" style="--left:100%; --bottom:99%" ><span class="lc-tip">421</span></div>
+                <!-- Area fill under the line using a CSS clip-path polygon -->
+                <div class="lc-area"></div>
+                <!-- Connecting segments rendered as tilted thin divs -->
+                <div class="lc-seg" style="--x1:0%;   --y1:1%;  --x2:7.7%;  --y2:3%;  "></div>
+                <div class="lc-seg" style="--x1:7.7%; --y1:3%;  --x2:15.4%; --y2:8%;  "></div>
+                <div class="lc-seg" style="--x1:15.4%;--y1:8%;  --x2:23.1%; --y2:13%; "></div>
+                <div class="lc-seg" style="--x1:23.1%;--y1:13%; --x2:30.8%; --y2:20%; "></div>
+                <div class="lc-seg" style="--x1:30.8%;--y1:20%; --x2:38.5%; --y2:28%; "></div>
+                <div class="lc-seg" style="--x1:38.5%;--y1:28%; --x2:46.2%; --y2:35%; "></div>
+                <div class="lc-seg" style="--x1:46.2%;--y1:35%; --x2:53.8%; --y2:41%; "></div>
+                <div class="lc-seg" style="--x1:53.8%;--y1:41%; --x2:61.5%; --y2:50%; "></div>
+                <div class="lc-seg" style="--x1:61.5%;--y1:50%; --x2:69.2%; --y2:60%; "></div>
+                <div class="lc-seg" style="--x1:69.2%;--y1:60%; --x2:76.9%; --y2:70%; "></div>
+                <div class="lc-seg" style="--x1:76.9%;--y1:70%; --x2:84.6%; --y2:80%; "></div>
+                <div class="lc-seg" style="--x1:84.6%;--y1:80%; --x2:92.3%; --y2:91%; "></div>
+                <div class="lc-seg" style="--x1:92.3%;--y1:91%; --x2:100%;  --y2:99%; "></div>
+                <!-- X-axis labels -->
+                <div class="line-chart__xlabels">
+                  <span>1960</span><span>1970</span><span>1980</span><span>1990</span>
+                  <span>2000</span><span>2010</span><span>2023</span>
+                </div>
+              </div>
+            </div>
+            <p class="chart-note">&#9432; Illustrative data only. Not derived from real-world measurements.</p>
+          </div>
+
+          <!-- Panel C: Sea-Level Rise Sparkline -->
+          <div class="card trends-panel trends-panel--wide">
+            <div class="trends-panel__heading">
+              <span class="trends-panel__title">Global Mean Sea-Level Rise</span>
+              <span class="trends-panel__unit">mm above 1993 baseline</span>
+            </div>
+            <div class="chart-legend">
+              <span class="legend-dot legend-dot--blue"></span><span>Sea-level anomaly (mm)</span>
+              <span class="sealevel-current">&#9650; +101 mm since 1993</span>
+            </div>
+            <!-- Sparkline: area chart via CSS clip-path on a gradient rectangle -->
+            <div class="spark-wrap" role="img" aria-label="Sea level rise area chart from 0 mm in 1993 to 101 mm in 2023 (illustrative data)">
+              <div class="spark-chart__y-axis">
+                <span>100mm</span><span>75mm</span><span>50mm</span><span>25mm</span><span>0mm</span>
+              </div>
+              <div class="spark-chart">
+                <!-- Grid -->
+                <div class="spark-grid">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <!-- Area fill with clip-path polygon tracing the rise -->
+                <div class="spark-area"></div>
+                <!-- Data points + connecting bars (same CSS seg technique) -->
+                <!-- values (illustrative mm): 0,5,12,20,30,42,54,65,75,85,93,101 -->
+                <div class="lc-point lc-point--blue" style="--left:0%;   --bottom:0%"  ><span class="lc-tip">0</span></div>
+                <div class="lc-point lc-point--blue" style="--left:9%;   --bottom:5%"  ><span class="lc-tip">5</span></div>
+                <div class="lc-point lc-point--blue" style="--left:18%;  --bottom:12%" ><span class="lc-tip">12</span></div>
+                <div class="lc-point lc-point--blue" style="--left:27%;  --bottom:20%" ><span class="lc-tip">20</span></div>
+                <div class="lc-point lc-point--blue" style="--left:36%;  --bottom:30%" ><span class="lc-tip">30</span></div>
+                <div class="lc-point lc-point--blue" style="--left:45%;  --bottom:42%" ><span class="lc-tip">42</span></div>
+                <div class="lc-point lc-point--blue" style="--left:54%;  --bottom:53%" ><span class="lc-tip">54</span></div>
+                <div class="lc-point lc-point--blue" style="--left:63%;  --bottom:64%" ><span class="lc-tip">65</span></div>
+                <div class="lc-point lc-point--blue" style="--left:72%;  --bottom:74%" ><span class="lc-tip">75</span></div>
+                <div class="lc-point lc-point--blue" style="--left:81%;  --bottom:84%" ><span class="lc-tip">85</span></div>
+                <div class="lc-point lc-point--blue" style="--left:90%;  --bottom:92%" ><span class="lc-tip">93</span></div>
+                <div class="lc-point lc-point--blue" style="--left:100%; --bottom:100%"><span class="lc-tip">101</span></div>
+                <!-- X labels -->
+                <div class="line-chart__xlabels">
+                  <span>1993</span><span>1998</span><span>2003</span><span>2008</span>
+                  <span>2013</span><span>2018</span><span>2023</span>
+                </div>
+              </div>
+            </div>
+            <p class="chart-note">&#9432; Illustrative data only. Not derived from real-world measurements.</p>
+          </div>
+
+        </div><!-- /trends-layout -->
+      </section>
+
+      <!-- ==========================================
+           SECTION 3: Renewable Energy — with donut
+      =========================================== -->
+      <section class="section" id="renewable-energy" aria-label="Renewable Energy">
+        <h2 class="section__title">Renewable Energy Progress <span class="section__badge">2023 targets</span></h2>
+
+        <div class="energy-layout">
+
+          <!-- Energy mix donut chart (CSS conic-gradient) -->
+          <div class="card energy-donut-card">
+            <div class="energy-donut__heading">Global Electricity Mix</div>
+            <div class="energy-donut__subtitle">2023 · Illustrative shares</div>
+            <!-- conic-gradient donut: Solar 12.4%, Wind 10.8%, Hydro 8.2%, Other RE 4.0%, Fossil 64.6% -->
+            <div class="donut-wrap" role="img" aria-label="Donut chart of global electricity mix: solar 12%, wind 11%, hydro 8%, other renewables 4%, fossil fuels 65% (illustrative)">
+              <div class="donut"></div>
+              <div class="donut__center">
+                <span class="donut__value">35.4%</span>
+                <span class="donut__label">Renewable</span>
+              </div>
+            </div>
+            <ul class="donut-legend" aria-label="Chart legend">
+              <li><span class="donut-legend__dot" style="background:#F4A62A"></span>Solar <strong>12.4%</strong></li>
+              <li><span class="donut-legend__dot" style="background:#0FA882"></span>Wind <strong>10.8%</strong></li>
+              <li><span class="donut-legend__dot" style="background:#3B82F6"></span>Hydro <strong>8.2%</strong></li>
+              <li><span class="donut-legend__dot" style="background:#A855F7"></span>Other RE <strong>4.0%</strong></li>
+              <li><span class="donut-legend__dot" style="background:#374151"></span>Fossil <strong>64.6%</strong></li>
+            </ul>
+          </div>
+
+          <!-- Four progress cards -->
+          <div class="energy-grid">
+
+            <div class="card energy-card">
+              <div class="energy-card__header">
+                <span class="energy-card__icon" aria-hidden="true">&#9728;</span>
+                <div>
+                  <div class="energy-card__name">Solar Power</div>
+                  <div class="energy-card__value">12.4% <span class="energy-card__target">/ 15% target</span></div>
+                </div>
+              </div>
+              <div class="progress-bar"><div class="progress-bar__fill" style="--p:82.7%;--color:#F4A62A"></div></div>
+              <div class="energy-card__stats">
+                <span>1,240 GW installed</span>
+                <span class="stat-up">&#9650; +18% YoY</span>
+              </div>
+            </div>
+
+            <div class="card energy-card">
+              <div class="energy-card__header">
+                <span class="energy-card__icon" aria-hidden="true">&#9872;</span>
+                <div>
+                  <div class="energy-card__name">Wind Power</div>
+                  <div class="energy-card__value">10.8% <span class="energy-card__target">/ 14% target</span></div>
+                </div>
+              </div>
+              <div class="progress-bar"><div class="progress-bar__fill" style="--p:77.1%;--color:#0FA882"></div></div>
+              <div class="energy-card__stats">
+                <span>870 GW installed</span>
+                <span class="stat-up">&#9650; +12% YoY</span>
+              </div>
+            </div>
+
+            <div class="card energy-card">
+              <div class="energy-card__header">
+                <span class="energy-card__icon" aria-hidden="true">&#9675;</span>
+                <div>
+                  <div class="energy-card__name">Hydropower</div>
+                  <div class="energy-card__value">8.2% <span class="energy-card__target">/ 9% target</span></div>
+                </div>
+              </div>
+              <div class="progress-bar"><div class="progress-bar__fill" style="--p:91.1%;--color:#3B82F6"></div></div>
+              <div class="energy-card__stats">
+                <span>1,360 GW installed</span>
+                <span class="stat-up">&#9650; +2% YoY</span>
+              </div>
+            </div>
+
+            <div class="card energy-card">
+              <div class="energy-card__header">
+                <span class="energy-card__icon" aria-hidden="true">&#9880;</span>
+                <div>
+                  <div class="energy-card__name">Other Renewables</div>
+                  <div class="energy-card__value">4.0% <span class="energy-card__target">/ 6% target</span></div>
+                </div>
+              </div>
+              <div class="progress-bar"><div class="progress-bar__fill" style="--p:66.7%;--color:#A855F7"></div></div>
+              <div class="energy-card__stats">
+                <span>Geothermal, biomass, tidal</span>
+                <span class="stat-up">&#9650; +9% YoY</span>
+              </div>
+            </div>
+
+          </div><!-- /energy-grid -->
+        </div><!-- /energy-layout -->
+      </section>
+
+      <!-- ==========================================
+           SECTION 4: Regional Climate Risk — map + cards
+      =========================================== -->
+      <section class="section" id="risk-index" aria-label="Regional Climate Risk">
+        <h2 class="section__title">Regional Climate Risk Overview <span class="section__badge">Composite index 2023</span></h2>
+
+        <!-- Stylized CSS world map — continental blobs with risk heat coloring -->
+        <div class="card world-map-card" aria-label="Stylized world map showing regional climate risk levels (illustrative)">
+          <div class="map-header">
+            <span class="map-header__title">Global Risk Heat Map</span>
+            <div class="map-legend">
+              <span class="map-legend__item"><span class="map-legend__dot" style="background:#EF4444"></span>Critical (75–100)</span>
+              <span class="map-legend__item"><span class="map-legend__dot" style="background:#F97316"></span>High (60–74)</span>
+              <span class="map-legend__item"><span class="map-legend__dot" style="background:#EAB308"></span>Medium (40–59)</span>
+              <span class="map-legend__item"><span class="map-legend__dot" style="background:#0A7C65"></span>Low (0–39)</span>
+            </div>
+          </div>
+          <div class="world-map" role="img" aria-label="Stylized map blobs representing global regions colored by climate risk severity">
+            <!-- Each region is a CSS-shaped blob positioned on a relative container -->
+            <!-- North America -->
+            <div class="map-blob map-blob--medium" style="--ml:7%;--mt:12%;--w:18%;--h:26%"
+                 title="North America: Risk 49/100 — Medium">
+              <span class="map-blob__label">N. America<br>49</span>
+            </div>
+            <!-- Central America / Caribbean -->
+            <div class="map-blob map-blob--high" style="--ml:13%;--mt:36%;--w:8%;--h:10%"
+                 title="Central America: Risk 63/100 — High">
+              <span class="map-blob__label">C. Am.<br>63</span>
+            </div>
+            <!-- South America -->
+            <div class="map-blob map-blob--medium" style="--ml:14%;--mt:44%;--w:13%;--h:26%"
+                 title="South America: Risk 52/100 — Medium">
+              <span class="map-blob__label">S. America<br>52</span>
+            </div>
+            <!-- Northern Europe -->
+            <div class="map-blob map-blob--low" style="--ml:41%;--mt:6%;--w:12%;--h:16%"
+                 title="Northern Europe: Risk 32/100 — Low">
+              <span class="map-blob__label">N. Europe<br>32</span>
+            </div>
+            <!-- Mediterranean -->
+            <div class="map-blob map-blob--medium" style="--ml:41%;--mt:22%;--w:11%;--h:11%"
+                 title="Mediterranean: Risk 58/100 — Medium">
+              <span class="map-blob__label">Mediterr.<br>58</span>
+            </div>
+            <!-- Sub-Saharan Africa -->
+            <div class="map-blob map-blob--high" style="--ml:43%;--mt:34%;--w:14%;--h:26%"
+                 title="Sub-Saharan Africa: Risk 76/100 — High">
+              <span class="map-blob__label">Sub-Saharan<br>Africa 76</span>
+            </div>
+            <!-- Middle East -->
+            <div class="map-blob map-blob--high" style="--ml:54%;--mt:22%;--w:10%;--h:14%"
+                 title="Middle East: Risk 67/100 — High">
+              <span class="map-blob__label">Mid. East<br>67</span>
+            </div>
+            <!-- South Asia -->
+            <div class="map-blob map-blob--critical" style="--ml:62%;--mt:26%;--w:12%;--h:18%"
+                 title="South Asia: Risk 82/100 — Critical">
+              <span class="map-blob__label">South Asia<br>82</span>
+            </div>
+            <!-- East Asia -->
+            <div class="map-blob map-blob--medium" style="--ml:73%;--mt:14%;--w:14%;--h:22%"
+                 title="East Asia: Risk 46/100 — Medium">
+              <span class="map-blob__label">East Asia<br>46</span>
+            </div>
+            <!-- Southeast Asia -->
+            <div class="map-blob map-blob--high" style="--ml:74%;--mt:36%;--w:10%;--h:16%"
+                 title="Southeast Asia: Risk 70/100 — High">
+              <span class="map-blob__label">SE Asia<br>70</span>
+            </div>
+            <!-- Australia -->
+            <div class="map-blob map-blob--medium" style="--ml:76%;--mt:53%;--w:12%;--h:18%"
+                 title="Australia: Risk 55/100 — Medium">
+              <span class="map-blob__label">Australia<br>55</span>
+            </div>
+            <!-- Pacific Islands -->
+            <div class="map-blob map-blob--high" style="--ml:87%;--mt:42%;--w:7%;--h:10%"
+                 title="Pacific Islands: Risk 71/100 — High">
+              <span class="map-blob__label">Pacific Is.<br>71</span>
+            </div>
+          </div>
+          <p class="chart-note">&#9432; Stylized representation only. Blob positions are approximate. Illustrative risk scores.</p>
+        </div>
+
+        <!-- Risk score cards grid -->
+        <div class="risk-grid">
+
+          <div class="card risk-card risk-card--critical">
+            <div class="risk-card__region">South Asia</div>
+            <div class="risk-card__score">82<span>/100</span></div>
+            <div class="risk-card__tag">Critical</div>
+            <ul class="risk-card__factors">
+              <li>Extreme heat events</li>
+              <li>Monsoon disruption</li>
+              <li>Sea-level rise</li>
+            </ul>
+            <div class="progress-bar"><div class="progress-bar__fill" style="--p:82%;--color:#EF4444"></div></div>
+          </div>
+
+          <div class="card risk-card risk-card--high">
+            <div class="risk-card__region">Sub-Saharan Africa</div>
+            <div class="risk-card__score">76<span>/100</span></div>
+            <div class="risk-card__tag">High</div>
+            <ul class="risk-card__factors">
+              <li>Prolonged droughts</li>
+              <li>Food insecurity</li>
+              <li>Water scarcity</li>
+            </ul>
+            <div class="progress-bar"><div class="progress-bar__fill" style="--p:76%;--color:#F97316"></div></div>
+          </div>
+
+          <div class="card risk-card risk-card--high">
+            <div class="risk-card__region">Pacific Islands</div>
+            <div class="risk-card__score">71<span>/100</span></div>
+            <div class="risk-card__tag">High</div>
+            <ul class="risk-card__factors">
+              <li>Ocean acidification</li>
+              <li>Coastal flooding</li>
+              <li>Storm surge intensity</li>
+            </ul>
+            <div class="progress-bar"><div class="progress-bar__fill" style="--p:71%;--color:#F97316"></div></div>
+          </div>
+
+          <div class="card risk-card risk-card--medium">
+            <div class="risk-card__region">Mediterranean</div>
+            <div class="risk-card__score">58<span>/100</span></div>
+            <div class="risk-card__tag">Medium</div>
+            <ul class="risk-card__factors">
+              <li>Wildfire risk</li>
+              <li>Desertification</li>
+              <li>Prolonged heatwaves</li>
+            </ul>
+            <div class="progress-bar"><div class="progress-bar__fill" style="--p:58%;--color:#EAB308"></div></div>
+          </div>
+
+          <div class="card risk-card risk-card--medium">
+            <div class="risk-card__region">North America</div>
+            <div class="risk-card__score">49<span>/100</span></div>
+            <div class="risk-card__tag">Medium</div>
+            <ul class="risk-card__factors">
+              <li>Extreme weather events</li>
+              <li>Glacial retreat</li>
+              <li>Flash flood risk</li>
+            </ul>
+            <div class="progress-bar"><div class="progress-bar__fill" style="--p:49%;--color:#EAB308"></div></div>
+          </div>
+
+          <div class="card risk-card risk-card--low">
+            <div class="risk-card__region">Northern Europe</div>
+            <div class="risk-card__score">32<span>/100</span></div>
+            <div class="risk-card__tag">Low</div>
+            <ul class="risk-card__factors">
+              <li>Permafrost thaw</li>
+              <li>Milder winters</li>
+              <li>Ecosystem species shifts</li>
+            </ul>
+            <div class="progress-bar"><div class="progress-bar__fill" style="--p:32%;--color:#0A7C65"></div></div>
+          </div>
+
+        </div><!-- /risk-grid -->
+      </section>
+
+      <!-- ==========================================
+           SECTION 5: Sustainability Progress Tracker
+      =========================================== -->
+      <section class="section" aria-label="Sustainability Progress Tracker">
+        <h2 class="section__title">Sustainability Progress Tracker <span class="section__badge">Paris Agreement · Illustrative</span></h2>
+        <div class="card tracker">
+
+          <div class="tracker__item">
+            <div class="tracker__label">
+              Net Zero Emissions by 2050
+              <span class="tracker__year-range">2020 ——————— 2050</span>
+            </div>
+            <div class="tracker__bar-wrap">
+              <div class="progress-bar progress-bar--tall">
+                <div class="progress-bar__fill" style="--p:28%;--color:#0A7C65"></div>
+              </div>
+              <div class="tracker__milestones">
+                <span class="milestone" style="--pos:33%" title="2030 target: −45% emissions">2030</span>
+                <span class="milestone" style="--pos:66%" title="2040 interim">2040</span>
+                <span class="milestone" style="--pos:100%" title="2050 net zero">2050</span>
+              </div>
+            </div>
+            <div class="tracker__info">
+              <span class="tracker__pct">28%</span>
+              <span class="tracker__status tracker__status--behind">Behind schedule</span>
+            </div>
+          </div>
+
+          <div class="tracker__item">
+            <div class="tracker__label">
+              Limit Warming to 1.5°C
+              <span class="tracker__year-range">Carbon budget tracker</span>
+            </div>
+            <div class="tracker__bar-wrap">
+              <div class="progress-bar progress-bar--tall">
+                <div class="progress-bar__fill" style="--p:80%;--color:#EF4444"></div>
+              </div>
+              <div class="tracker__milestones">
+                <span class="milestone milestone--warn" style="--pos:50%" title="50% budget used — critical threshold">50%</span>
+                <span class="milestone milestone--warn" style="--pos:80%" title="Current: 80% used">Now</span>
+              </div>
+            </div>
+            <div class="tracker__info">
+              <span class="tracker__pct">80% used</span>
+              <span class="tracker__status tracker__status--critical">Critical</span>
+            </div>
+          </div>
+
+          <div class="tracker__item">
+            <div class="tracker__label">
+              30×30 Protected Areas
+              <span class="tracker__year-range">Goal: protect 30% by 2030</span>
+            </div>
+            <div class="tracker__bar-wrap">
+              <div class="progress-bar progress-bar--tall">
+                <div class="progress-bar__fill" style="--p:17%;--color:#3B82F6"></div>
+              </div>
+              <div class="tracker__milestones">
+                <span class="milestone" style="--pos:100%" title="2030 goal: 30% coverage">2030</span>
+              </div>
+            </div>
+            <div class="tracker__info">
+              <span class="tracker__pct">17 / 30%</span>
+              <span class="tracker__status tracker__status--behind">In progress</span>
+            </div>
+          </div>
+
+          <div class="tracker__item">
+            <div class="tracker__label">
+              Clean Energy Finance ($100B/yr)
+              <span class="tracker__year-range">Annual pledge to developing nations</span>
+            </div>
+            <div class="tracker__bar-wrap">
+              <div class="progress-bar progress-bar--tall">
+                <div class="progress-bar__fill" style="--p:69%;--color:#F4A62A"></div>
+              </div>
+              <div class="tracker__milestones">
+                <span class="milestone" style="--pos:100%" title="Target: $100B/yr">$100B</span>
+              </div>
+            </div>
+            <div class="tracker__info">
+              <span class="tracker__pct">$69B raised</span>
+              <span class="tracker__status tracker__status--behind">Behind schedule</span>
+            </div>
+          </div>
+
+          <div class="tracker__item">
+            <div class="tracker__label">
+              Halt Deforestation by 2030
+              <span class="tracker__year-range">Forest loss reduction vs 2018</span>
+            </div>
+            <div class="tracker__bar-wrap">
+              <div class="progress-bar progress-bar--tall">
+                <div class="progress-bar__fill" style="--p:42%;--color:#A855F7"></div>
+              </div>
+              <div class="tracker__milestones">
+                <span class="milestone" style="--pos:100%" title="2030: halt all deforestation">2030</span>
+              </div>
+            </div>
+            <div class="tracker__info">
+              <span class="tracker__pct">42% reduced</span>
+              <span class="tracker__status tracker__status--on-track">On track</span>
+            </div>
+          </div>
+
+        </div><!-- /tracker -->
+      </section>
+
+      <!-- ==========================================
+           SECTION 6: Climate News (4 cards)
+      =========================================== -->
+      <section class="section" id="news" aria-label="Climate News">
+        <div class="section-header-row">
+          <h2 class="section__title" style="margin-bottom:0">Latest Climate Intelligence</h2>
+          <a href="#news" class="view-all-link" aria-label="View all climate news articles">View all &#8594;</a>
+        </div>
+        <div class="news-grid">
+
+          <article class="card news-card">
+            <div class="news-card__tag news-card__tag--alert">&#9888; Alert</div>
+            <h3 class="news-card__title">Arctic Sea Ice Reaches Record Low in September 2023</h3>
+            <p class="news-card__body">Satellite observations confirm Arctic sea ice extent fell to 4.09 million km² — the lowest in the 45-year satellite era, raising concerns about albedo feedback loops and accelerated permafrost thaw.</p>
+            <div class="news-card__footer">
+              <span class="news-card__source">&#9432; Illustrative · World Climate Monitor</span>
+              <span class="news-card__date">Oct 2023</span>
+            </div>
+          </article>
+
+          <article class="card news-card">
+            <div class="news-card__tag news-card__tag--positive">&#9650; Progress</div>
+            <h3 class="news-card__title">Global Solar Capacity Surpasses 1 TW Milestone</h3>
+            <p class="news-card__body">The world's cumulative solar PV capacity crossed 1 terawatt for the first time in 2023, driven by record installations across Asia, Europe, and North America, cutting costs by a further 12%.</p>
+            <div class="news-card__footer">
+              <span class="news-card__source">&#9432; Illustrative · Renewable Energy Agency</span>
+              <span class="news-card__date">Sep 2023</span>
+            </div>
+          </article>
+
+          <article class="card news-card">
+            <div class="news-card__tag news-card__tag--warning">&#9874; Policy</div>
+            <h3 class="news-card__title">COP28 Agreement Sets New Carbon Market Framework</h3>
+            <p class="news-card__body">Nations reached consensus on Article 6 carbon market rules, enabling cross-border emissions trading and unlocking an estimated $1 trillion in climate finance flowing to developing nations by 2030.</p>
+            <div class="news-card__footer">
+              <span class="news-card__source">&#9432; Illustrative · Climate Policy Review</span>
+              <span class="news-card__date">Dec 2023</span>
+            </div>
+          </article>
+
+          <article class="card news-card">
+            <div class="news-card__tag news-card__tag--research">&#9670; Research</div>
+            <h3 class="news-card__title">Ocean Heat Content Hits Unprecedented Level in 2023</h3>
+            <p class="news-card__body">The global ocean absorbed more heat in 2023 than in any prior year on record, with upper ocean temperatures exceeding averages by 0.26°C — driving stronger tropical storms and threatening coral reef systems worldwide.</p>
+            <div class="news-card__footer">
+              <span class="news-card__source">&#9432; Illustrative · Ocean Sciences Journal</span>
+              <span class="news-card__date">Jan 2024</span>
+            </div>
+          </article>
+
+        </div><!-- /news-grid -->
+      </section>
+
+      <!-- ==========================================
+           SECTION 7: Settings — full grouped UI
+      =========================================== -->
+      <section class="section" id="settings" aria-label="Settings">
+        <h2 class="section__title">Settings</h2>
+
+        <div class="settings-layout">
+
+          <!-- Group 1: Data Sources -->
+          <div class="card settings-group">
+            <div class="settings-group__header">
+              <span class="settings-group__icon" aria-hidden="true">&#9670;</span>
+              <span class="settings-group__title">Data &amp; Sources</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Data refresh interval</span>
+                <span class="settings-hint">How often the dashboard fetches updated metrics</span>
+              </div>
+              <span class="settings-value settings-value--badge">Every 6 hours</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Baseline period</span>
+                <span class="settings-hint">Reference era for temperature anomaly calculations</span>
+              </div>
+              <span class="settings-value settings-value--badge">Pre-industrial 1850–1900</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Primary data source</span>
+                <span class="settings-hint">Climate data provider (illustrative)</span>
+              </div>
+              <span class="settings-value settings-value--badge">Global Climate API v3</span>
+            </div>
+          </div>
+
+          <!-- Group 2: Display Preferences -->
+          <div class="card settings-group">
+            <div class="settings-group__header">
+              <span class="settings-group__icon" aria-hidden="true">&#9681;</span>
+              <span class="settings-group__title">Display Preferences</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Unit system</span>
+                <span class="settings-hint">Measurement units used across all metrics</span>
+              </div>
+              <span class="settings-value settings-value--badge">Metric (°C, km², Gt)</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Chart color theme</span>
+                <span class="settings-hint">Visual palette for data visualizations</span>
+              </div>
+              <span class="settings-value settings-value--badge">Teal / Dark Navy</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Show illustrative data labels</span>
+                <span class="settings-hint">Display disclaimer banners on all charts</span>
+              </div>
+              <span class="settings-toggle settings-toggle--on" role="status" aria-label="Enabled">ON</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Compact sidebar</span>
+                <span class="settings-hint">Collapse sidebar to icon-only mode</span>
+              </div>
+              <span class="settings-toggle settings-toggle--off" role="status" aria-label="Disabled">OFF</span>
+            </div>
+          </div>
+
+          <!-- Group 3: Notifications -->
+          <div class="card settings-group">
+            <div class="settings-group__header">
+              <span class="settings-group__icon" aria-hidden="true">&#9993;</span>
+              <span class="settings-group__title">Notifications</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Risk index threshold alert</span>
+                <span class="settings-hint">Notify when any region exceeds this score</span>
+              </div>
+              <span class="settings-value settings-value--badge">75 / 100</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Weekly digest email</span>
+                <span class="settings-hint">Summary of key metrics sent every Monday</span>
+              </div>
+              <span class="settings-toggle settings-toggle--on" role="status" aria-label="Enabled">ON</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Critical event push alerts</span>
+                <span class="settings-hint">Immediate notification for critical climate events</span>
+              </div>
+              <span class="settings-toggle settings-toggle--on" role="status" aria-label="Enabled">ON</span>
+            </div>
+          </div>
+
+          <!-- Group 4: System -->
+          <div class="card settings-group">
+            <div class="settings-group__header">
+              <span class="settings-group__icon" aria-hidden="true">&#9881;</span>
+              <span class="settings-group__title">System</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Dashboard version</span>
+                <span class="settings-hint">Current build identifier</span>
+              </div>
+              <span class="settings-value">2.0.0 — Illustrative</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Data classification</span>
+                <span class="settings-hint">All data is simulated for demonstration purposes</span>
+              </div>
+              <span class="settings-value settings-value--warn">&#9432; Illustrative Only</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row__left">
+                <span class="settings-label">Last data sync</span>
+                <span class="settings-hint">Most recent successful data refresh</span>
+              </div>
+              <span class="settings-value">Dec 31, 2023 · 06:00 UTC</span>
+            </div>
+          </div>
+
+        </div><!-- /settings-layout -->
+      </section>
+
+    </main><!-- /content -->
+
+    <footer class="page-footer">
+      <p>EarthWatch Climate Intelligence Dashboard &mdash; <strong>Illustrative data only. Not for policy or scientific use.</strong> &copy; 2024</p>
+    </footer>
+
+  </div><!-- /main-wrapper -->
+
+</body>
+</html>
